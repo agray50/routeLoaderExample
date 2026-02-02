@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Resource } from '@resource/resource.entity';
 import { CreateResourceDto, ResourceResponseDto } from '@resource/dto';
 import { IntegrationService } from '@integration/integration.service';
+import { NotFoundApiException } from '@common/exceptions';
 
 @Injectable()
 export class ResourceService {
@@ -14,6 +15,21 @@ export class ResourceService {
     private readonly resourceRepository: Repository<Resource>,
     private readonly integrationService: IntegrationService,
   ) {}
+
+  async findOne(uuid: string): Promise<ResourceResponseDto> {
+    const resource = await this.resourceRepository.findOne({
+      where: { uuid },
+    });
+
+    if (!resource) {
+      throw new NotFoundApiException(
+        'RESOURCE_NOT_FOUND',
+        `Resource with UUID ${uuid} not found`,
+      );
+    }
+
+    return this.toResponseDto(resource);
+  }
 
   async getOrCreate(dto: CreateResourceDto): Promise<ResourceResponseDto> {
     const existing = await this.resourceRepository.findOne({

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { resourceClient } from '@api/client';
 import type { Resource } from '@api/types';
 
-export async function resourceLoader({ params }: LoaderFunctionArgs): Promise<Resource> {
+export async function resourceStrictLoader({ params }: LoaderFunctionArgs): Promise<Resource> {
   const { uuid } = params;
 
   if (!uuid) {
@@ -11,7 +11,7 @@ export async function resourceLoader({ params }: LoaderFunctionArgs): Promise<Re
   }
 
   try {
-    return await resourceClient.get(uuid);
+    return await resourceClient.getStrict(uuid);
   } catch (error) {
     let message = 'An unexpected error occurred';
     if (axios.isAxiosError(error)) {

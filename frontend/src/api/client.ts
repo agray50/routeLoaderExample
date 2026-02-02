@@ -23,4 +23,8 @@ export const resourceClient = {
     const response = await backendApi.get<Resource>(`/resource/${uuid}`);
     return response.data;
   },
+  getStrict: async (uuid: string): Promise<Resource> => {
+    const response = await backendApi.get<Resource>(`/resource/${uuid}/strict`);
+    return response.data;
+  },
 };

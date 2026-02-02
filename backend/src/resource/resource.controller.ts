@@ -17,4 +17,11 @@ export class ResourceController {
   ): Promise<ResourceResponseDto> {
     return this.resourceService.getOrCreate({ uuid });
   }
+
+  @Get(':uuid/strict')
+  async findOne(
+    @Param('uuid', ParseUUIDPipe) uuid: string,
+  ): Promise<ResourceResponseDto> {
+    return this.resourceService.findOne(uuid);
+  }
 }
