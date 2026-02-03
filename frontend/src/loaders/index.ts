@@ -1,1 +1,1 @@
-export { resourceLoader } from '@loaders/resourceLoader';
+export { userLoader } from '@loaders/userLoader';

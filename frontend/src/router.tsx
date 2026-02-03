@@ -1,10 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '@components/Layout';
 import { Dashboard } from '@pages/Dashboard';
-import { ResourcePage } from '@pages/ResourcePage';
+import { UserPage } from '@pages/UserPage';
 import { ErrorPage } from '@pages/ErrorPage';
-import { resourceLoader } from '@loaders/resourceLoader';
-import { resourceStrictLoader } from '@loaders/resourceStrictLoader';
+import { userLoader } from '@loaders/userLoader';
 
 export const router = createBrowserRouter([
   {
@@ -17,14 +16,9 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: 'resource/:uuid',
-        element: <ResourcePage />,
-        loader: resourceLoader,
-      },
-      {
-        path: 'resource/:uuid/strict',
-        element: <ResourcePage />,
-        loader: resourceStrictLoader,
+        path: 'users/:id',
+        element: <UserPage />,
+        loader: userLoader,
       },
     ],
   },

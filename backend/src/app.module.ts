@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ResourceModule } from '@resource/resource.module';
+import { UserModule } from '@user/user.module';
 import { DatabaseModule } from '@database/database.module';
 
 @Module({
@@ -10,7 +10,7 @@ import { DatabaseModule } from '@database/database.module';
       envFilePath: '.env',
     }),
     DatabaseModule,
-    ResourceModule,
+    UserModule,
   ],
 })
 export class AppModule {}

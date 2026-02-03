@@ -21,7 +21,8 @@
       "@api/*": ["./api/*"],
       "@components/*": ["./components/*"],
       "@pages/*": ["./pages/*"],
-      "@loaders/*": ["./loaders/*"]
+      "@loaders/*": ["./loaders/*"],
+      "@hooks/*": ["./hooks/*"]
     }
   },
   "include": ["src"],

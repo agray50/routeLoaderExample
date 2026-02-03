@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { User, Resource } from '@api/types';
+import type { User, UserDetail } from '@api/types';
 
 const backendApi = axios.create({
   baseURL: '/api',
@@ -18,13 +18,9 @@ export const usersClient = {
   },
 };
 
-export const resourceClient = {
-  get: async (uuid: string): Promise<Resource> => {
-    const response = await backendApi.get<Resource>(`/resource/${uuid}`);
-    return response.data;
-  },
-  getStrict: async (uuid: string): Promise<Resource> => {
-    const response = await backendApi.get<Resource>(`/resource/${uuid}/strict`);
+export const userClient = {
+  get: async (id: string): Promise<UserDetail> => {
+    const response = await backendApi.get<UserDetail>(`/users/${id}`);
     return response.data;
   },
 };

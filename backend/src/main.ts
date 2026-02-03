@@ -1,4 +1,5 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
+import { ClassSerializerInterceptor } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from '@/app.module';
 import { globalValidationPipe } from '@common/pipes';
@@ -9,6 +10,7 @@ async function bootstrap() {
 
   app.useGlobalPipes(globalValidationPipe);
   app.useGlobalFilters(new ApiExceptionFilter());
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
   app.enableCors({
     origin: 'http://localhost:5173',

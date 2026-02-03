@@ -6,8 +6,8 @@ export function Dashboard() {
   const navigate = useNavigate();
 
   const handleTestError = () => {
-    // Navigate to a non-existent resource using strict mode
-    navigate('/resource/00000000-0000-0000-0000-000000000000/strict');
+    // Navigate to a non-existent user to test error handling
+    navigate('/users/00000000-0000-0000-0000-000000000000');
   };
 
   return (

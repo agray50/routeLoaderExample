@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Resource } from '@resource/resource.entity';
+import { User } from '@user/user.entity';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { Resource } from '@resource/resource.entity';
         username: configService.get<string>('DATABASE_USER', 'postgres'),
         password: configService.get<string>('DATABASE_PASSWORD', 'postgres'),
         database: configService.get<string>('DATABASE_NAME', 'route_loader_demo'),
-        entities: [Resource],
+        entities: [User],
         synchronize: true,
         logging: configService.get<string>('NODE_ENV') !== 'production',
       }),

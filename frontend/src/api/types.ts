@@ -1,13 +1,12 @@
 /** User from external integration */
 export interface User {
-  id: number;
-  name: string;
   uuid: string;
+  name: string;
 }
 
-/** Resource from backend */
-export interface Resource {
-  uuid: string;
+/** User detail from backend */
+export interface UserDetail {
+  id: string;
   name: string;
   createdAt: string;
 }
