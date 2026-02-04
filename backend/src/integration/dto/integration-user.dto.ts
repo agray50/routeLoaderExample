@@ -1,6 +1,6 @@
 import { Expose } from 'class-transformer';
 
-export class IntegrationUser {
+export class IntegrationUserDto {
   @Expose()
   id: string;
 

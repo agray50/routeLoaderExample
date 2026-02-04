@@ -3,7 +3,7 @@ import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { firstValueFrom } from 'rxjs';
 import { plainToInstance } from 'class-transformer';
-import { IntegrationUser } from '@integration/types';
+import { IntegrationUserDto } from '@integration/dto';
 import { ServiceUnavailableApiException } from '@common/exceptions';
 
 @Injectable()
@@ -21,10 +21,10 @@ export class IntegrationService {
     );
   }
 
-  async getUserById(id: string): Promise<IntegrationUser | null> {
+  async getUserById(id: string): Promise<IntegrationUserDto | null> {
     try {
       const response = await firstValueFrom(
-        this.httpService.get<IntegrationUser[]>(`${this.baseUrl}/users`, {
+        this.httpService.get<IntegrationUserDto[]>(`${this.baseUrl}/users`, {
           params: { id },
         }),
       );
@@ -34,7 +34,7 @@ export class IntegrationService {
         return null;
       }
 
-      return plainToInstance(IntegrationUser, users[0], {
+      return plainToInstance(IntegrationUserDto, users[0], {
         excludeExtraneousValues: true,
       });
     } catch (error) {
