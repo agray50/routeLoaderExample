@@ -20,7 +20,7 @@ export function UsersTable() {
   const { users, loading, error } = useUsers();
 
   const handleNameClick = (user: User) => {
-    navigate(`/users/${user.uuid}`);
+    navigate(`/users/${user.id}`);
   };
 
   if (loading) {
@@ -46,7 +46,7 @@ export function UsersTable() {
         </TableHead>
         <TableBody>
           {users.map((user) => (
-            <TableRow key={user.uuid} hover>
+            <TableRow key={user.id} hover>
               <TableCell>
                 <Link
                   component="button"
@@ -58,7 +58,7 @@ export function UsersTable() {
                 </Link>
               </TableCell>
               <TableCell sx={{ fontFamily: 'monospace', fontSize: '0.875rem' }}>
-                {user.uuid}
+                {user.id}
               </TableCell>
             </TableRow>
           ))}

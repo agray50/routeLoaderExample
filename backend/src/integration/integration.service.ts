@@ -2,7 +2,9 @@ import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { firstValueFrom } from 'rxjs';
+import { plainToInstance } from 'class-transformer';
 import { IntegrationUser } from '@integration/types';
+import { ServiceUnavailableApiException } from '@common/exceptions';
 
 @Injectable()
 export class IntegrationService {
@@ -19,19 +21,28 @@ export class IntegrationService {
     );
   }
 
-  async getUserByUuid(uuid: string): Promise<IntegrationUser | null> {
+  async getUserById(id: string): Promise<IntegrationUser | null> {
     try {
       const response = await firstValueFrom(
         this.httpService.get<IntegrationUser[]>(`${this.baseUrl}/users`, {
-          params: { uuid },
+          params: { id },
         }),
       );
 
       const users = response.data;
-      return users.length > 0 ? users[0] : null;
+      if (users.length === 0) {
+        return null;
+      }
+
+      return plainToInstance(IntegrationUser, users[0], {
+        excludeExtraneousValues: true,
+      });
     } catch (error) {
-      this.logger.warn(`Failed to fetch user ${uuid} from integration: ${error}`);
-      return null;
+      this.logger.error(`Integration service error for user ${id}`, error);
+      throw new ServiceUnavailableApiException(
+        'INTEGRATION_UNAVAILABLE',
+        'Unable to reach integration service',
+      );
     }
   }
 }

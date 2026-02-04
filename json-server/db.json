@@ -1,43 +1,43 @@
 {
   "users": [
     {
-      "uuid": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+      "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
       "name": "Alice Smith"
     },
     {
-      "uuid": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+      "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
       "name": "Bob Johnson"
     },
     {
-      "uuid": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
+      "id": "c3d4e5f6-a7b8-4c9d-0e1f-2a3b4c5d6e7f",
       "name": "Carol Williams"
     },
     {
-      "uuid": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f80",
+      "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f80",
       "name": "David Brown"
     },
     {
-      "uuid": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8091",
+      "id": "e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8091",
       "name": "Eva Martinez"
     },
     {
-      "uuid": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8091a2",
+      "id": "f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8091a2",
       "name": "Frank Garcia"
     },
     {
-      "uuid": "07b8c9d0-e1f2-4a3b-8c5d-6e7f8091a2b3",
+      "id": "07b8c9d0-e1f2-4a3b-8c5d-6e7f8091a2b3",
       "name": "Grace Lee"
     },
     {
-      "uuid": "18c9d0e1-f2a3-4b4c-9d6e-7f8091a2b3c4",
+      "id": "18c9d0e1-f2a3-4b4c-9d6e-7f8091a2b3c4",
       "name": "Henry Wilson"
     },
     {
-      "uuid": "29d0e1f2-a3b4-4c5d-ae7f-8091a2b3c4d5",
+      "id": "29d0e1f2-a3b4-4c5d-ae7f-8091a2b3c4d5",
       "name": "Ivy Chen"
     },
     {
-      "uuid": "30e1f2a3-b4c5-4d6e-bf80-91a2b3c4d5e6",
+      "id": "30e1f2a3-b4c5-4d6e-bf80-91a2b3c4d5e6",
       "name": "Jack Thompson"
     }
   ]

@@ -43,7 +43,7 @@ export class UserService {
   }
 
   private async createUser(id: string): Promise<User> {
-    const integrationUser = await this.integrationService.getUserByUuid(id);
+    const integrationUser = await this.integrationService.getUserById(id);
 
     if (!integrationUser) {
       throw new NotFoundApiException(
